@@ -28,3 +28,7 @@ Il progetto FlashNote EDU è costruito utilizzando il seguente stack tecnologico
 - React Native CLI
 - Supabase CLI
 - Docker (per WhisperX)
+
+
+## Roadmap
+- seguire la roadmap presente nella root del repository in docs/roadmap.md
