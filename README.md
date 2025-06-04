@@ -314,34 +314,49 @@ supabase start
 cp .env.example .env
 # Configura API keys (Gemini, Stripe, etc.)
 
-## Quick Start
+### Quick Start
 
-To get this project up and running on your local machine, follow these simple steps:
+Per iniziare con il progetto FlashNote EDU, segui questi semplici passaggi:
 
-### 1. Clone the repository
-
-```bash
-git clone <repository-url>
+1.  **Clona il repository:**
+    ```bash
+git clone https://github.com/tuo-utente/flashnote-edu.git
 cd flashnote-edu
-```
+    ```
 
-### 2. Install Dependencies
-
-Navigate to the project root directory and install the necessary Node.js packages:
-
-```bash
+2.  **Installa le dipendenze (per il frontend web):**
+    ```bash
 npm install
-```
+    ```
 
-### 3. Run the Application
-
-Start the development server. This will serve the `public` directory and allow you to view the application in your browser:
-
-```bash
+3.  **Avvia l'applicazione web:**
+    ```bash
 npm start
-```
+    ```
+    Questo avvierà un server di sviluppo e aprirà l'applicazione nel tuo browser predefinito.
 
-Your application should now be accessible at `http://localhost:8080` (or another port if 8080 is in use).
+### Sviluppo Frontend Mobile (React Native)
+
+Per lavorare sul frontend mobile, segui questi passaggi:
+
+1.  **Assicurati di avere i prerequisiti di sviluppo installati:**
+    - Node.js 18+
+    - React Native CLI (installabile con `npm install -g react-native-cli`)
+    - Supabase CLI
+    - Docker
+
+2.  **Installa le dipendenze del progetto mobile:**
+    ```bash
+cd src/FlashNoteEDUApp
+npm install
+    ```
+
+3.  **Avvia l'applicazione mobile:**
+    Puoi avviare l'applicazione mobile direttamente dalla directory radice del progetto:
+    ```bash
+npm run start:mobile
+    ```
+    Questo avvierà il Metro Bundler di React Native. Dovrai poi avviare l'applicazione su un emulatore o un dispositivo fisico (es. `npx react-native run-android` o `npx react-native run-ios` dalla directory `src/FlashNoteEDUApp`).
 
 # Run development
 npm run dev

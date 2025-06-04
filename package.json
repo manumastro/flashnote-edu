@@ -4,13 +4,11 @@
   "description": "A simple educational project for Flashnote.",
   "main": "src/main.js",
   "scripts": {
-    "start": "live-server public/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "echo 'No web frontend configured. Use npm run start:mobile for mobile development.'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:mobile": "cd src/FlashNoteEDUApp && npm start"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  }
+  "license": "ISC"
 }
