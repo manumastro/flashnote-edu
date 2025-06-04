@@ -256,21 +256,6 @@ next_review (date)
 Login → Dashboard → [Add Video | Review | Stats] → Profile
 ```
 
-## 💰 Modello di Business
-
-### Piani di Abbonamento
-
-| Piano | Prezzo | Funzionalità |
-|-------|--------|--------------|
-| **Free** | 0€ | 3 video/mese, 30 flashcard, ads |
-| **Student Pro** | 7€/mese | Illimitato, export Anki, dark mode |
-| **School Pack** | 499€/anno | 100 licenze + dashboard docente |
-
-### Metriche Target
-- **Break-even**: 300 abbonati Pro
-- **CAC/LTV ratio**: 1:6 (Student Pro)
-- **Retention D7**: 40% target
-
 ## 🔧 Setup Sviluppo
 
 ### Prerequisiti
@@ -354,90 +339,6 @@ GEMINI_API_KEY=your_gemini_key
 STRIPE_SECRET_KEY=your_stripe_key
 REVENUECAT_API_KEY=your_revenuecat_key
 ```
-
-## 🧪 Testing Strategy
-
-### Test Coverage
-- **Unit Tests**: Jest per funzioni SM-2 e utilities
-- **Integration Tests**: Edge Functions e DB operations  
-- **E2E Tests**: Detox per flow completi mobile
-- **A/B Tests**: Mixpanel + GPT-Analytics per UX
-
-### Quality Assurance
-- ESLint + Prettier per code quality
-- TypeScript per type safety
-- Sentry per crash reporting
-- Performance monitoring con Supabase Analytics
-
-## 📈 Metriche e Analytics
-
-### KPI Principali
-- **Activation**: 60% completano primo deck
-- **Retention D7**: 40% target
-- **Revenue**: 5% conversion Free → Pro
-- **Engagement**: Streak giornaliero medio
-
-### Tools Monitoring
-- Mixpanel per user behavior
-- Supabase Analytics per backend metrics
-- RevenueCat per subscription analytics
-- Sentry per error tracking
-
-## 🔒 Privacy e Sicurezza
-
-### Data Protection
-- GDPR compliant data handling
-- Audio files processati e eliminati dopo trascrizione
-- JWT tokens per autenticazione sicura
-- Encryption at rest per dati sensibili
-
-### Content Safety
-- Fair use per trascrizioni (solo testo)
-- Cache locale per evitare copyright issues
-- Chain-of-verification per ridurre AI hallucinations
-
-## 🚀 Deployment
-
-### Production Environment
-- **Mobile**: TestFlight (iOS) + Google Play Console (Android)
-- **Backend**: Supabase Edge Functions auto-deploy
-- **Database**: Supabase managed PostgreSQL
-- **Storage**: Supabase Storage per file audio/JSON
-
-### CI/CD Pipeline
-```bash
-# GitHub Actions workflow
-Build → Test → Deploy → Monitor
-```
-
-## 🤝 Contributing
-
-### Development Workflow
-1. Fork repository
-2. Create feature branch
-3. Implement con vibe coding (Cursor/Replit)
-4. Test thoroughly
-5. Submit pull request
-
-### Code Style
-- TypeScript strict mode
-- Functional components (React)
-- Tailwind CSS per styling
-- Conventional commits
-
-## 📞 Support
-
-### Community
-- Discord server per developer community
-- GitHub Issues per bug reports
-- Documentation su GitBook
-
-### Business Contact
-- Email: hello@flashnoteedu.app
-- Website: https://flashnoteedu.app
-- Twitter: @FlashNoteEDU
-
----
 
 **Built with ❤️ using Vibe Coding principles**
 
