@@ -4,5 +4,3 @@ build/
 dist/
 *.log
 .DS_Store
-
-src/FlashNoteEDUApp/
