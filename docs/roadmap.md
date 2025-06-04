@@ -21,7 +21,6 @@
 
 | Week    | Phase | Epic / Obiettivo             | Deliverable chiave                                 |
 | ------- | ----- | ---------------------------- | -------------------------------------------------- |
-| **0**   | 0     | Discovery & Personas         | Interviste, competitive analysis report            |
 | **1**   | 0     | UX & Design System           | Wireframe principali, design tokens Figma          |
 | **2**   | 1     | Video ingest & transcription | Endpoint `/process-video`, container WhisperX      |
 | **3**   | 1     | Flashcard generation         | Endpoint `/generate-cards`, tab “Flashcards”       |
