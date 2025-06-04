@@ -1,5 +1,8 @@
 # Regole del Progetto FlashNote EDU
 
+## Panoramica del Progetto
+- seguire la panoramica del progetto presente nella root del repository in docs/project_overview.md
+
 ## Stack Tecnologico
 - seguire lo stack tecnologico presente nella root del repository in docs/tech_stack.md
 

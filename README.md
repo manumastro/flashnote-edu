@@ -271,22 +271,6 @@ Login → Dashboard → [Add Video | Review | Stats] → Profile
 - **CAC/LTV ratio**: 1:6 (Student Pro)
 - **Retention D7**: 40% target
 
-## 🛠️ Roadmap di Sviluppo
-
-### Fase 1: MVP (4 settimane)
-- **Settimana 1**: Pipeline YouTube → Trascrizione
-- **Settimana 2**: Generazione flashcard LLM
-- **Settimana 3**: Motore spaced repetition SM-2
-- **Settimana 4**: UI React Native + gamification
-
-### Fase 2: Launch (2 settimane)
-- **Settimana 5**: Paywall e monetizzazione
-- **Settimana 6**: Testing e QA completi
-
-### Fase 3: Scale (2+ settimane)
-- **Settimana 7**: Deployment e monitoraggio
-- **Settimana 8+**: Ottimizzazioni e feature avanzate
-
 ## 🔧 Setup Sviluppo
 
 ### Prerequisiti
