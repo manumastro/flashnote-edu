@@ -1,0 +1,16 @@
+{
+  "name": "flashnote-edu",
+  "version": "1.0.0",
+  "description": "A simple educational project for Flashnote.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "live-server public/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

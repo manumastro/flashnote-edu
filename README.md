@@ -314,6 +314,35 @@ supabase start
 cp .env.example .env
 # Configura API keys (Gemini, Stripe, etc.)
 
+## Quick Start
+
+To get this project up and running on your local machine, follow these simple steps:
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd flashnote-edu
+```
+
+### 2. Install Dependencies
+
+Navigate to the project root directory and install the necessary Node.js packages:
+
+```bash
+npm install
+```
+
+### 3. Run the Application
+
+Start the development server. This will serve the `public` directory and allow you to view the application in your browser:
+
+```bash
+npm start
+```
+
+Your application should now be accessible at `http://localhost:8080` (or another port if 8080 is in use).
+
 # Run development
 npm run dev
 ```
