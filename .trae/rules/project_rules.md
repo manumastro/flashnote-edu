@@ -6,3 +6,6 @@
 
 ## Roadmap
 - seguire la roadmap presente nella root del repository in docs/roadmap.md
+
+## Struttura del Progetto
+- seguire la struttura del progetto presente nella root del repository in docs/project_structure.md
