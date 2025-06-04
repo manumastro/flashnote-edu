@@ -13,6 +13,7 @@ flashnote-edu/
 ├── docs/                   # Documentazione aggiuntiva
 │   ├── roadmap.md          # Roadmap di sviluppo del progetto
 │   └── tech_stack.md       # Stack tecnologico utilizzato
+│   └── project_structure.md  # Struttura del progetto
 ├── package-lock.json
 ├── package.json
 └── src/
