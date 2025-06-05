@@ -169,14 +169,20 @@ FlashNote EDU è un'applicazione mobile rivoluzionaria che trasforma l'apprendim
 graph TD
     A[Nuova Flashcard/Quiz generata] --> B[Prima sessione di studio]
     B --> C{Risposta corretta?}
+
+    C -- Sì --> I[Aggiorna streak/badge]
+    C -- Sì --> J[Registra performance]
     C -- Sì --> D[Aumenta intervallo di ripasso]
+
+    C -- No --> J[Registra performance]
     C -- No --> E[Intervallo breve, ripeti domani]
+
     D --> F[Assegna data ripasso lontana]
     E --> F
+
     F --> G[Notifica utente per ripasso]
     G --> H[L'utente ripassa alla data prevista]
-    H --> I[Aggiorna streak/badge]
-    H --> J[Registra performance]
+
     H --> C
 ```
 
