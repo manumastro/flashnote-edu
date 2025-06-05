@@ -314,10 +314,10 @@ graph LR
 ```mermaid
 flowchart LR
     A[Seleziona Contenuto] --> B{Formato di Esportazione}
-    B --> C[Anki (.apkg)]
-    B --> D[Quizlet (.txt)]
-    B --> E[PDF (.pdf)]
-    B --> F[JSON (.json)]
+    B --> C[Anki]
+    B --> D[Quizlet]
+    B --> E[PDF]
+    B --> F[JSON]
 ```
 
 ### ⚙️ Technical Flow Integration
