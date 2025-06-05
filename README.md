@@ -213,3 +213,138 @@ FlashNote EDU è un'applicazione mobile rivoluzionaria che trasforma l'apprendim
 | **Manutenibilità** | Funzioni isolate per Gemini e YouTube                     |
 | **Realtime UX** | Notifiche live su completamento contenuti                 |
 | **AI-Powered**  | Trascrizione e generazione contenuti 100% Gemini-based     |
+
+
+
+## 🧹 UI Schema (Mobile-First Design)
+
+### 🏠 Home Screen
+
+```mermaid
+graph TD
+    A[YouTube URL Input] --> B[Generate Button]
+    B --> C[Processing Animation]
+    C --> D[Content Ready Notification]
+    
+    E[Generated Content List] --> F[Flashcard Preview]
+    E --> G[Quiz Summary]
+    E --> H[Mindmap Thumbnail]
+    E --> I[Summary Snippet]
+    
+    J[Navigation Bar] --> K[Home]
+    J --> L[Library]
+    J --> M[Stats]
+    J --> N[Profile]
+```
+
+### 📚 Flashcard Detail
+
+* **Header**: Video Title + Timestamp
+* **Card Front**:
+
+  * Question Type Badge (🧠 Definition / 🧪 Application / 🔍 Comparison)
+  * Question Text
+* **Card Back**:
+
+  * Detailed Answer with Examples
+  * Semantic Links (Related Cards)
+  * Confidence Slider (1-5)
+* **Footer Controls**:
+
+  * ❮ Previous | Next ❯
+  * 🔁 Regenerate | 📤 Export
+
+### 🧪 Quiz Interface
+
+```mermaid
+flowchart LR
+    A[Timer Display] --> B[Question Area]
+    B --> C[Answer Zone]
+    C --> D[Feedback Panel]
+```
+
+### 🧠 Mindmap Viewer
+
+```mermaid
+graph LR
+    A[Interactive Canvas] --> B[Context Menu]
+    A --> C[Learning Path Indicator]
+    B --> D[Focus Mode]
+    B --> E[Export Options]
+```
+
+### ♻️ Core Flow Architecture
+
+#### ⭯️ Main Workflow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant API
+    participant DB
+    
+    User->>App: Inserisce URL YouTube
+    App->>API: Richiesta elaborazione (Gemini API)
+    API->>DB: Salva stato "In elaborazione"
+    API->>YouTube: Recupera trascrizione
+    YouTube-->>API: Dati video + sottotitoli
+    API->>API: Analisi semantica NLP
+    API->>API: Generazione contenuti multi-formato
+    API->>DB: Salva flashcard/quiz/mindmap
+    DB-->>API: Conferma salvataggio
+    API-->>App: Notifica completamento (WebSocket)
+    App-->>User: Mostra contenuti generati
+```
+
+### 📊 Gamification System Flow
+
+```mermaid
+graph LR
+    A[Session Start] --> B[Streak Counter]
+    B --> C{Obiettivo Giornaliero}
+    C -->|Completo| D[Badge + XP]
+    C -->|Mancato| E[Promemoria Push]
+    D --> F[Classifica Globale]
+    E --> G[Raccomandazione Studio]
+```
+
+### 📦 Export Flow
+
+```mermaid
+flowchart LR
+    A[Seleziona Contenuto] --> B{Formato di Esportazione}
+    B --> C[Anki (.apkg)]
+    B --> D[Quizlet (.txt)]
+    B --> E[PDF (.pdf)]
+    B --> F[JSON (.json)]
+```
+
+### ⚙️ Technical Flow Integration
+
+```mermaid
+sequenceDiagram
+    User->>Frontend: Inserisce URL
+    Frontend->>Supabase: Crea record video
+    Supabase->>EdgeFunction: Attiva Gemini Processing
+    EdgeFunction->>YouTube: Recupera contenuti
+    EdgeFunction->>Gemini: Analisi semantica
+    Gemini-->>EdgeFunction: Contenuti strutturati
+    EdgeFunction->>Supabase: Salva risultati
+    Supabase-->>Frontend: Notifica realtime
+    Frontend->>User: Mostra contenuti
+```
+
+### 📊 Analytics Dashboard Schema
+
+**Progress Overview**:
+
+* Mastery Percentage Circle
+
+* Time Spent Chart (Daily/Weekly)
+
+* **Content Performance**:
+
+  * Flashcard Accuracy Heatmap
+  * Quiz Difficulty Map
+
