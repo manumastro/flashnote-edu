@@ -125,66 +125,91 @@ FlashNote EDU è un'applicazione mobile rivoluzionaria che trasforma l'apprendim
 
 ## 🏗️ Architettura Tecnica Dettagliata
 
-### Stack Tecnologico Completo
+# 🏗️ Stack Tecnologico + 🤖 AI Content Flow — FlashNote EDU
 
-#### **Frontend Mobile (React Native)**
+## 📱 1. Frontend Mobile (React Native)
 
+> App mobile-first per dispositivi iOS e Android
 
-**Core Framework & Development Environment**
-L'applicazione utilizza React Native 0.72+ con TypeScript in modalità strict per garantire type safety completa e ridurre errori runtime. Metro bundler viene configurato con transform personalizzati per ottimizzare bundle size e performance. L'integrazione Flipper permette debugging avanzato con network inspection, database viewer e performance profiling. CodePush abilita aggiornamenti over-the-air per fix critici e feature rollout graduale senza passare per app store review.
+- **Framework**: React Native `v0.72+` con `TypeScript strict mode`
+- **Bundler**: Metro + transform custom per performance e dimensioni ridotte
+- **Debug**: Flipper per ispezione rete, database e profiling
+- **OTA Update**: CodePush per aggiornamenti automatici senza store
 
-**Navigation & State Management Architecture**
-React Navigation 6.x implementa navigazione type-safe con parametri tipizzati, supportando deep linking e state restoration. Redux Toolkit gestisce stato globale con slice pattern per modularity, mentre React Query ottimizza server state con caching intelligente, background refetch e optimistic updates. AsyncStorage fornisce persistenza locale per user preferences, offline data e session recovery.
+**Navigazione & Stato**:
+- React Navigation 6 (type-safe, deep linking)
+- Redux Toolkit (slice modulari) + React Query (caching, refetching, optimistic UI)
+- AsyncStorage (persistenza locale)
 
-**UI/UX Component System**
-React Native Elements fornisce component library consistente con tema personalizzato e accessibilità integrata. Reanimated 3 gestisce animazioni performanti con worklet thread separato, abilitando 60fps smooth transitions. Gesture Handler intercetta touch events nativi per interazioni fluide come swipe, pinch e pan. Vector Icons supporta icon sets personalizzati con font optimization per ridurre app size.
+**UI/UX**:
+- React Native Elements (design system personalizzato)
+- Reanimated 3 + Gesture Handler per animazioni a 60fps
+- Vector Icons (ottimizzate per performance)
 
-**Performance Optimization Strategy**
-Implementazione sistematica di React.memo per prevenire re-render inutili, useMemo/useCallback per operazioni costose come sorting e filtering. FlatList virtualization gestisce dataset grandi con rendering on-demand, mentre Image lazy loading con progressive enhancement riduce memory usage e miglira perceived performance. Bundle splitting e code splitting riducono initial load time.
+**Performance**:
+- `React.memo`, `useMemo`, `useCallback`
+- Virtualizzazione FlatList e lazy loading immagini
+- Code splitting e bundle splitting
 
-#### **Backend Infrastructure (Supabase)**
+---
 
-**Database Schema & Architecture**
-PostgreSQL database strutturato con tabelle ottimizzate per performance e scalabilità. Users table gestisce profili utente con preferenze apprendimento in formato JSONB per flessibilità. Videos table centralizza metadata video YouTube con transcript processed (da Gemini) e categorizzazione automatica (da Gemini). Flashcards table implementa relazioni many-to-many tra users e videos, includendo metadata per spaced repetition algorithm. Study Sessions tracking permette analytics dettagliate e progress monitoring. User Progress table aggrega metriche a lungo termine per insights e gamification.
+## 🧩 2. Backend (Supabase)
 
-**Edge Functions & Serverless Logic**
-Supabase Edge Functions (Deno runtime) gestiscono le chiamate all'**API Gemini** per la generazione e l'analisi dei contenuti. Queste funzioni orchestrano l'invio del video/trascrizione all'API Gemini e la ricezione/parsing dei risultati. Functions isolate permettono scaling automatico e reduced latency through geographic distribution. Webhook handlers processano YouTube video updates e user events in real-time. Background jobs gestiscono batch processing per video analysis e user analytics computation.
+> Database, autenticazione, API serverless, real-time, analytics
 
-**Real-time Capabilities**
-PostgreSQL built-in pub/sub system abilita real-time updates per multiplayer features, leaderboards live e collaborative study sessions. Row Level Security (RLS) policies garantiscono data isolation e privacy compliance. Connection pooling ottimizza database performance sotto load elevato.
+- **Database**: PostgreSQL con tabelle:
+  - `users`, `videos`, `flashcards`, `quiz_items`, `summaries`, `mindmaps`
+  - `study_sessions`, `user_progress` per analytics e gamification
 
-### 🤖 AI Content Generation Flow (con API Gemini)
+- **Edge Functions (Deno)**:
+  - Integrazione diretta con **API Gemini**
+  - Parsing video, analisi semantica, salvataggio dati strutturati
+  - Webhooks per aggiornamenti da YouTube e attività utente
+  - Batch processing per video lunghi
 
-#### 📥 1. Input
-- L’utente inserisce un link YouTube o carica un video.
-- Un Edge Function Supabase attiva il parsing dell’ID del video e recupera i metadati necessari tramite l'API di YouTube (come titolo, descrizione, e se disponibili, trascrizioni ufficiali).
+- **Realtime**:
+  - Pub/Sub PostgreSQL per sessioni collaborative e leaderboard
+  - RLS (Row Level Security) per privacy
+  - Connection pooling per alta concorrenza
 
-#### 🔊 2. Trascrizione e Comprensione del Contenuto Video
-- L'Edge Function invia il link del video (o l'audio/video stesso, se caricato direttamente) all'**API Gemini**.
-- L'API Gemini, grazie alle sue capacità multimodali, processa il contenuto video:
-    - Esegue la trascrizione dell'audio, idealmente con timestamp a livello di parola o frase.
-    - Comprende il contesto semantico del video.
-- Se una trascrizione di alta qualità è già disponibile tramite l'API di YouTube, questa può essere passata come input testuale diretto a Gemini per l'elaborazione semantica, potenzialmente accelerando il processo e riducendo i costi.
+---
 
-#### 🧠 3. Elaborazione Semantica e Generazione Contenuti con API Gemini
-- La trascrizione e/o la comprensione del video ottenuta da Gemini (o la trascrizione preesistente) viene utilizzata come input per ulteriori chiamate all'**API Gemini** (ad esempio, usando un modello come Gemini 1.5 Pro).
-- Vengono inviati prompt specifici e strutturati all'API Gemini per generare:
-    - **Flashcard**: Seguendo la tassonomia di Bloom, tipi di domande/risposte vari, definizioni, ecc.
-    - **Quiz**: Domande a scelta multipla (con distrattori), cloze deletion (fill-in-the-blank), vero/falso con giustificazioni.
-    - **Mappa Mentale**: Una struttura dati gerarchica (es. JSON) che rappresenta i concetti chiave e le loro relazioni.
-    - **Riassunto Strutturato**: Riassunti a più livelli di dettaglio, dai punti chiave a spiegazioni più elaborate.
-- Ogni prompt è ingegnerizzato per massimizzare la qualità e la pertinenza dell'output per il tipo di contenuto desiderato.
+## 🤖 3. AI Content Generation Flow (API Gemini)
 
-#### 🗂️ 4. Salvataggio Contenuti
-- I contenuti strutturati (JSON, testo) restituiti dall'API Gemini vengono parsati e salvati nelle tabelle appropriate del database Supabase:
-  - `flashcards`, `summaries`, `mindmap_data`, `quiz_items` (tutti relazionati al `video_id`).
-- I metadati includono:
-  - Eventuali confidence score forniti da Gemini o stimati.
-  - Timestamp (se correlabili al video).
-  - User ID.
-  - Versione del modello Gemini utilizzata (per tracciabilità e futuri aggiornamenti).
+### 📥 3.1 Input: YouTube Video
+- L’utente inserisce un link o carica un file
+- Supabase recupera metadati (API YouTube)
+- Usa trascrizioni automatiche/manuali, se disponibili
 
-#### 🔄 5. Update Realtime Client
-- Tramite le funzionalità realtime/pubsub di Supabase:
-  - Il frontend React Native riceve una notifica che i contenuti sono pronti.
-  - L'interfaccia utente si aggiorna dinamicamente per mostrare le flashcard, i quiz, la mappa mentale e il riassunto generati.
+### 🔊 3.2 Trascrizione + Comprensione
+- Video inviato a **Gemini API**
+- Gemini esegue:
+  - Trascrizione audio con timestamp
+  - Analisi semantica del contenuto
+
+### 🧠 3.3 Generazione Contenuti
+- Prompt strutturati per generare:
+  - **📚 Flashcard**
+  - **📚 Quiz**
+  - **📚 Mappe mentali**
+  - **📚 Riassunti strutturati**
+
+### 🗂️ 3.4 Salvataggio su Supabase
+- Contenuti salvati in `flashcards`, `summaries`, `mindmap_data`, `quiz_items`
+- Con metadati: `confidence_score`, `timestamp`, `user_id`, `Gemini_model_version`
+
+### 🔄 3.5 Notifica Realtime al Client
+- React Native riceve evento realtime
+- UI aggiornata con i nuovi contenuti generati
+
+---
+
+## ✅ Vantaggi dell’Architettura
+
+| Area            | Vantaggio                                                  |
+|-----------------|------------------------------------------------------------|
+| **Modularità**  | Separazione tra front, backend e AI                        |
+| **Velocità**    | Generazione contenuti < 30 secondi                         |
+| **Manutenibilità** | Funzioni isolate per Gemini e YouTube                     |
+| **Realtime UX** | Notifiche live su completamento contenuti                 |
+| **AI-Powered**  | Trascrizione e generazione contenuti 100% Gemini-based     |
