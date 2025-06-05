@@ -163,23 +163,21 @@ FlashNote EDU è un'applicazione mobile rivoluzionaria che trasforma l'apprendim
 * Ritenzione ottimale dei concetti chiave
 * Pianificazione automatica del ripasso giornaliero
 
-### 🗂️ **Diagramma del Flow dello Spaced Repetition**
+### 🗂️ Diagramma Flow Spaced Repetition
 
 ```mermaid
 graph TD
     A[Nuova Flashcard/Quiz generata] --> B[Prima sessione di studio]
     B --> C{Risposta corretta?}
-    C -- Sì --> D[Aumenta intervallo di ripasso]
-    C -- No --> E[Intervallo più breve, ripeti domani]
-    D --> F[Assegna data di ripasso futura (più lontana)]
-    E --> F[Assegna data di ripasso futura (presto)]
-    F --> G[Notifica utente per prossimo ripasso]
-    G --> H[L'utente ripassa nella data prevista]
+    C --|Sì| D[Aumenta intervallo di ripasso]
+    C --|No| E[Intervallo breve, ripeti domani]
+    D --> F[Assegna data ripasso lontana]
+    E --> F
+    F --> G[Notifica utente per ripasso]
+    G --> H[L'utente ripassa alla data prevista]
     H --> C
-
-    %% Gamification e Analytics
-    H --> I[Aggiorna streak e badge]
-    H --> J[Registra performance e aggiorna dashboard]
+    H --> I[Aggiorna streak/badge]
+    H --> J[Registra performance]
 ```
 
 ---
