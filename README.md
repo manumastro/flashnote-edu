@@ -1,345 +1,190 @@
 # FlashNote EDU 🎓📱
+*Documentazione Tecnica Completa v2.0*
 
 > Trasforma video-lezioni YouTube in flashcard e quiz adattivi in meno di 30 secondi
 
-## 📋 Panoramica del Progetto
+---
 
-FlashNote EDU è un'applicazione mobile che rivoluziona l'apprendimento digitale convertendo automaticamente video educativi di YouTube in **flashcard intelligenti**, **quiz adattivi**, **mappe mentali** e **riassunti strutturati**. Utilizza intelligenza artificiale avanzata per estrarre contenuti chiave e creare materiali di studio personalizzati con sistema di ripetizione dilazionata (spaced repetition).
+## 📋 Executive Summary
 
-### 🎯 Problema Risolto
-- Il 90% degli studenti usa strumenti AI per studiare ma mancano soluzioni integrate mobile-first
-- Nessuna app unisce efficacemente "video → flashcard + quiz" con gamification
-- Google offre riassunti video ma non spaced repetition personalizzata
+### Panoramica del Progetto
+FlashNote EDU è un'applicazione mobile rivoluzionaria che trasforma l'apprendimento digitale convertendo automaticamente video educativi di YouTube in **flashcard intelligenti**, **quiz adattivi**, **mappe mentali interattive** e **riassunti strutturati**. L'app utilizza intelligenza artificiale avanzata per estrarre contenuti chiave e creare materiali di studio personalizzati con sistema di ripetizione dilazionata scientificamente provato.
 
-### 💡 Valore Unico
-- **Velocità**: < 30 secondi da video a contenuti di studio
-- **Multi-formato**: Flashcard, quiz, mappe mentali, riassunti
-- **Gamification**: Streaks, badge, statistiche avanzate
-- **Cross-platform**: Export verso Anki/Quizlet/PDF
-- **Mobile-first**: Esperienza ottimizzata per smartphone
+### 🎯 Analisi del Problema
+- **Gap di Mercato**: Il 90% degli studenti utilizza strumenti AI per studiare ma mancano soluzioni integrate mobile-first
+- **Frammentazione**: Nessuna app unisce efficacemente "video → flashcard + quiz" con elementi di gamification
+- **Limitazioni Esistenti**: Google offre riassunti video ma non spaced repetition personalizzata
+- **Tempo Sprecato**: Gli studenti perdono ore a creare manualmente flashcard da video lunghi
 
-## 🎓 Funzionalità Principali
+### 💡 Proposta di Valore Unica
+- **Velocità Estrema**: Trasformazione completa in < 30 secondi da video a contenuti di studio
+- **Multi-formato Intelligente**: Flashcard, quiz, mappe mentali, riassunti tutti generati simultaneamente
+- **Gamification Avanzata**: Streaks, badge, classifiche e statistiche dettagliate
+- **Interoperabilità Totale**: Export verso Anki, Quizlet, PDF e altri formati standard
+- **Mobile-first Design**: Esperienza ottimizzata specificamente per smartphone e tablet
 
-### 📚 Generazione Contenuti AI
+---
 
-**Flashcard Intelligenti**
-- Creazione automatica da trascrizioni video
-- Q&A pairs basati su tassonomia di Bloom
-- Supporto per diversi tipi: definizioni, applicazioni, analisi
-- Metadata con timestamp per riferimenti video
+## 🎓 Funzionalità Core
 
-**Quiz Adattivi**
-- Multiple choice generati automaticamente
-- Cloze deletion (riempimento spazi)
-- True/False con giustificazioni
-- Difficulty scaling basato su performance utente
+### 📚 Sistema di Generazione Contenuti AI
 
-**Mappe Mentali Automatiche**
-- Struttura gerarchica dei concetti chiave
-- Connessioni semantiche tra argomenti
-- Export in formato JSON/SVG
-- Visualizzazione interattiva touch-friendly
+#### 📚 **Flashcard Intelligenti**
 
-**Riassunti Strutturati**
-- Bullet points organizzati per sezioni
-- Evidenziazione concetti chiave
-- Timeline degli argomenti con timestamp
-- Abstract esecutivo per revisione rapida
+**Processo di Creazione**
+1.  **Estrazione Trascrizioni**: Utilizzo API YouTube per ottenere sottotitoli automatici/manuali
+2.  **Analisi Semantica**: Elaborazione NLP per identificare concetti chiave, definizioni, esempi
+3.  **Tassonomia di Bloom**: Classificazione domande per livelli cognitivi (ricordare, comprendere, applicare, analizzare, valutare, creare)
+4.  **Ottimizzazione Contesto**: Bilanciamento lunghezza domande/risposte per la lettura su mobile
 
-### 🧠 Sistema di Apprendimento
+**Tipi Supportati**
+-   **Definizioni**: "Cos'è X?" → Spiegazione concisa con esempi
+-   **Applicazioni**: "Come si usa X?" → Passaggi procedurali con contesto
+-   **Confronti**: "Differenza tra X e Y?" → Tabelle comparative
+-   **Cause-Effetto**: "Perché accade X?" → Relazioni causali
+-   **Esempi**: "Esempio di X?" → Casi di studio concreti
 
-**Spaced Repetition (SM-2)**
-- Algoritmo scientifico per ottimizzare ritenzione
-- Intervalli personalizzati basati su performance
-- Curve di oblio individualmente calibrate
-- Predizione accuracy per prossime sessioni
+**Metadati Avanzati**
+-   Timestamp precisi per riferimenti al video originale
+-   Punteggio di difficoltà basato sulla complessità linguistica
+-   Tag automatici per la categorizzazione
+-   Punteggio di confidenza dell'AI sull'accuratezza
+-   Collegamenti semantici tra flashcard correlate
 
-**Modalità Studio Multiple**
-- **Focus Mode**: Solo flashcard critiche
-- **Quick Review**: Sessioni da 5-10 minuti
-- **Deep Dive**: Studio completo con mappe mentali
-- **Challenge Mode**: Quiz competitivi con timer
+#### 📚 **Quiz Adattivi Multi-Formato**
 
-**Progress Tracking Avanzato**
-- Heatmap di attività giornaliera
-- Curve di apprendimento per argomento
-- Confidence tracking per ogni concetto
-- Previsioni tempo necessario per mastery
+**Scelta Multipla Intelligente**
+-   Generazione di distrattori plausibili basati su errori comuni
+-   Bilanciamento della difficoltà attraverso analisi statistica
+-   Feedback immediato con spiegazioni dettagliate
+-   Domande adattive basate sulla cronologia delle prestazioni
 
-## 🏗️ Architettura Tecnica
+**Cloze Deletion (Completamento di Spazi Vuoti)**
+-   Identificazione automatica di parole chiave critiche
+-   Spazi vuoti multipli per frasi complesse
+-   Suggerimenti progressivi per supportare l'apprendimento
+-   Variazioni con sinonimi per un test completo
 
-### Stack Tecnologico
+**Vero/Falso con Giustificazioni**
+-   Affermazioni basate su fatti estratti dal video
+-   Richiesta di giustificazione per ogni risposta
+-   Analisi del ragionamento dell'utente per feedback personalizzato
+-   Database di errori comuni per miglioramento continuo
 
-**Frontend Mobile**
-- React Native con TypeScript
-- React Navigation per navigazione
-- React Context per state management
-- RevenueCat per in-app purchases
+**Scala di Difficoltà Dinamica**
+-   Tracciamento delle prestazioni in tempo reale per aggiustamenti
+-   Machine learning per la previsione del livello di sfida ottimale
+-   Personalizzazione basata sullo stile di apprendimento individuale
+-   A/B testing continuo per l'ottimizzazione degli algoritmi
 
-**Backend & AI**
-- Supabase (Database PostgreSQL + Edge Functions)
-- Node.js/TypeScript per API
-- WhisperX per trascrizione audio
-- Google Gemini Pro per generazione Q&A
-- Algoritmo SM-2 per spaced repetition
+#### 📚 **Mappe Mentali Automatiche**
 
-**Infrastruttura**
-- Supabase Storage per file audio/JSON
-- Supabase Auth per autenticazione
-- Stripe per pagamenti
-- Mixpanel per analytics
+**Struttura Gerarchica Intelligente**
+-   Concetti principali identificati tramite analisi di frequenza
+-   Sotto-argomenti organizzati per flusso logico
+-   Livelli di profondità ottimizzati per la visualizzazione su mobile
+-   Riferimenti incrociati tra rami correlati
 
-### Architettura High-Level
+**Connessioni Semantiche**
+-   Word embedding per il rilevamento della similarità
+-   Mappatura delle relazioni causali
+-   Sequenze temporali per argomenti cronologici
+-   Dipendenze dei prerequisiti per i percorsi di apprendimento
 
-```
-┌─────────────────────┐          ┌───────────────────────────┐
-│    Mobile App       │          │    Landing Page / Web     │
-│ React Native (TS)   │          │   (Typedream / Marketing) │
-│                     │          └───────────┬───────────────┘
-│ - Login / Auth      │                      │
-│ - Aggiungi Video    │                      │
-│ - Review Flashcards │                      │
-└───────┬─────────────┘                      │
-        │                                    │
-        │ (API Calls)                        │
-        ▼                                    │
-┌────────────────────────────────────────────────────────────────┐
-│      Supabase Edge Functions (Node.js / TS)                   │
-│                                                              │
-│  • /process-video           • /generate-cards                 │
-│  • /review                  • /check-subscription              │
-│                                                              │
-│  – Gestisce:                                                 │
-│    • Download audio YouTube (ytdl-core)                       │
-│    • Invocazione WhisperX / trascrizione                      │
-│    • Invocazione LLM per Q/A generation                       │
-│    • Logica SM-2 (spaced repetition)                          │
-│    • Verifica piano Stripe / RevenueCat                       │
-└───────┬──────────────────────────────────────────┬──────────────┘
-        │                                          │
-        ▼                                          ▼
-┌───────────────────────┐                ┌───────────────────────┐
-│    Supabase Database  │                │  Supabase Storage     │
-│    (Postgres)         │                │  (File audio .mp3,    │
-│                       │                │   JSON trascrizioni)  │
-│  • users              │                └───────────────────────┘
-│  • videos             │
-│  • transcriptions     │
-│  • flashcards         │
-│  • user_flashcards    │
-│  • subscriptions      │
-└───────────────────────┘
-```
+**Visualizzazione Interattiva**
+-   Gesti touch per una navigazione fluida
+-   Zoom e pan per l'esplorazione dei dettagli
+-   Comprimi/espandi nodi per la gestione del focus
+-   Codifica a colori per la differenziazione delle categorie
 
-## 📊 Schema Database
+**Capacità di Esportazione**
+-   JSON strutturato per integrazioni esterne
+-   Grafica vettoriale SVG per qualità di stampa
+-   PNG rasterizzato per la condivisione sui social
+-   HTML interattivo per l'incorporamento web
 
-### Tabelle Principali
+#### 📚 **Riassunti Strutturati Multi-Livello**
 
-**users**
-```sql
-id (UUID, PK)
-email (text, unique)
-password_hash (text)
-plan (text: free/pro/school)
-streak_days (int)
-created_at (timestamp)
-```
+**Organizzazione Gerarchica**
+-   Sommario esecutivo (2-3 frasi)
+-   Concetti principali (punti elenco prioritari)
+-   Spiegazioni dettagliate con esempi
+-   Punti chiave e azioni da intraprendere
 
-**videos**
-```sql
-id (UUID, PK)
-user_id (UUID, FK → users.id)
-youtube_url (text)
-supabase_audio_path (text)
-status (enum: pending/processing/done)
-created_at (timestamp)
-```
+**Evidenziazione Intelligente**
+-   Evidenziazione di parole chiave basata sull'importanza
+-   Citazioni dirette dal video con timestamp
+-   Dati statistici e numeri chiave
+-   Definizioni di termini tecnici
 
-**flashcards**
-```sql
-id (UUID, PK)
-transcription_id (UUID, FK → transcriptions.id)
-question (text)
-answer (text)
-type (enum: basic/cloze/mcq)
-difficulty (int 1-5)
-metadata (jsonb) -- timestamp, riferimenti
-created_at (timestamp)
-```
+**Timeline Navigabile**
+-   Organizzazione cronologica degli argomenti
+-   Link per passare direttamente a punti specifici del video per approfondimenti
+-   Indicatori di progresso per il tracciamento del completamento
+-   Segnalibri per riferimenti rapidi
 
-**quizzes**
-```sql
-id (UUID, PK)
-transcription_id (UUID, FK → transcriptions.id)
-question (text)
-options (jsonb) -- array opzioni MCQ
-correct_answer (text)
-explanation (text)
-type (enum: mcq/true_false/fill_blank)
-```
+## 🏗️ Architettura Tecnica Dettagliata
 
-**mind_maps**
-```sql
-id (UUID, PK)
-transcription_id (UUID, FK → transcriptions.id)
-nodes (jsonb) -- struttura nodi e connessioni
-root_concept (text)
-layout_data (jsonb) -- posizioni, styling
-```
+### Stack Tecnologico Completo
 
-**summaries**
-```sql
-id (UUID, PK)
-transcription_id (UUID, FK → transcriptions.id)
-content (jsonb) -- bullet points strutturati
-key_concepts (text[])
-timeline (jsonb) -- timestamp -> concetto
-abstract (text)
-```
+#### **Frontend Mobile (React Native)**
 
-**user_flashcards** (Spaced Repetition)
-```sql
-id (UUID, PK)
-user_id (UUID, FK → users.id)
-flashcard_id (UUID, FK → flashcards.id)
-interval (float)
-repetition (int)
-easiness (float)
-next_review (date)
-```
 
-## 🔄 Pipeline di Elaborazione
+**Core Framework & Development Environment**
+L'applicazione utilizza React Native 0.72+ con TypeScript in modalità strict per garantire type safety completa e ridurre errori runtime. Metro bundler viene configurato con transform personalizzati per ottimizzare bundle size e performance. L'integrazione Flipper permette debugging avanzato con network inspection, database viewer e performance profiling. CodePush abilita aggiornamenti over-the-air per fix critici e feature rollout graduale senza passare per app store review.
 
-### Flusso YouTube → Flashcard
+**Navigation & State Management Architecture**
+React Navigation 6.x implementa navigazione type-safe con parametri tipizzati, supportando deep linking e state restoration. Redux Toolkit gestisce stato globale con slice pattern per modularity, mentre React Query ottimizza server state con caching intelligente, background refetch e optimistic updates. AsyncStorage fornisce persistenza locale per user preferences, offline data e session recovery.
 
-1. **Input Video**: Utente inserisce URL YouTube
-2. **Download Audio**: Edge Function estrae audio con ytdl-core
-3. **Trascrizione**: WhisperX genera testo con timestamps
-4. **Generazione Q&A**: Gemini Pro crea 20 domande/risposte
-5. **Salvataggio**: Flashcard salvate nel database
-6. **Review**: Sistema SM-2 per ripetizione dilazionata
+**UI/UX Component System**
+React Native Elements fornisce component library consistente con tema personalizzato e accessibilità integrata. Reanimated 3 gestisce animazioni performanti con worklet thread separato, abilitando 60fps smooth transitions. Gesture Handler intercetta touch events nativi per interazioni fluide come swipe, pinch e pan. Vector Icons supporta icon sets personalizzati con font optimization per ridurre app size.
 
-```
-[YouTube URL] → [Audio Extract] → [WhisperX] → [LLM Q&A] → [Flashcards] → [SM-2 Review]
-```
+**Performance Optimization Strategy**
+Implementazione sistematica di React.memo per prevenire re-render inutili, useMemo/useCallback per operazioni costose come sorting e filtering. FlatList virtualization gestisce dataset grandi con rendering on-demand, mentre Image lazy loading con progressive enhancement riduce memory usage e miglira perceived performance. Bundle splitting e code splitting riducono initial load time.
 
-## 🚀 API Endpoints
+#### **Backend Infrastructure (Supabase)**
 
-### Core Endpoints
+**Database Schema & Architecture**
+PostgreSQL database strutturato con tabelle ottimizzate per performance e scalabilità. Users table gestisce profili utente con preferenze apprendimento in formato JSONB per flessibilità. Videos table centralizza metadata video YouTube con transcript processed (da Gemini) e categorizzazione automatica (da Gemini). Flashcards table implementa relazioni many-to-many tra users e videos, includendo metadata per spaced repetition algorithm. Study Sessions tracking permette analytics dettagliate e progress monitoring. User Progress table aggrega metriche a lungo termine per insights e gamification.
 
-| Endpoint | Metodo | Descrizione |
-|----------|--------|-------------|
-| `/process-video` | POST | Avvia pipeline video → flashcard |
-| `/review` | GET | Ottiene flashcard da ripassare oggi |
-| `/review` | POST | Invia feedback qualità (0-5) per SM-2 |
-| `/generate-cards` | POST | Genera Q&A da trascrizione |
-| `/check-subscription` | POST | Verifica stato abbonamento |
-| `/user-stats` | GET | Statistiche utente (streak, progress) |
+**Edge Functions & Serverless Logic**
+Supabase Edge Functions (Deno runtime) gestiscono le chiamate all'**API Gemini** per la generazione e l'analisi dei contenuti. Queste funzioni orchestrano l'invio del video/trascrizione all'API Gemini e la ricezione/parsing dei risultati. Functions isolate permettono scaling automatico e reduced latency through geographic distribution. Webhook handlers processano YouTube video updates e user events in real-time. Background jobs gestiscono batch processing per video analysis e user analytics computation.
 
-### Autenticazione
-- Supabase Auth con JWT tokens
-- Support per email/password e OAuth
+**Real-time Capabilities**
+PostgreSQL built-in pub/sub system abilita real-time updates per multiplayer features, leaderboards live e collaborative study sessions. Row Level Security (RLS) policies garantiscono data isolation e privacy compliance. Connection pooling ottimizza database performance sotto load elevato.
 
-## 📱 Navigazione UI
+### 🤖 AI Content Generation Flow (con API Gemini)
 
-### Schermate Principali
+#### 📥 1. Input
+- L’utente inserisce un link YouTube o carica un video.
+- Un Edge Function Supabase attiva il parsing dell’ID del video e recupera i metadati necessari tramite l'API di YouTube (come titolo, descrizione, e se disponibili, trascrizioni ufficiali).
 
-1. **Splash/Login**: Autenticazione utente
-2. **Dashboard**: Hub principale con azioni rapide
-3. **Add Video**: Input URL YouTube e processing
-4. **Review**: Sessione studio flashcard con SM-2
-5. **Stats**: Grafici progresso e achievements
-6. **Profile**: Impostazioni e gestione abbonamento
+#### 🔊 2. Trascrizione e Comprensione del Contenuto Video
+- L'Edge Function invia il link del video (o l'audio/video stesso, se caricato direttamente) all'**API Gemini**.
+- L'API Gemini, grazie alle sue capacità multimodali, processa il contenuto video:
+    - Esegue la trascrizione dell'audio, idealmente con timestamp a livello di parola o frase.
+    - Comprende il contesto semantico del video.
+- Se una trascrizione di alta qualità è già disponibile tramite l'API di YouTube, questa può essere passata come input testuale diretto a Gemini per l'elaborazione semantica, potenzialmente accelerando il processo e riducendo i costi.
 
-### Flow Utente
-```
-Login → Dashboard → [Add Video | Review | Stats] → Profile
-```
+#### 🧠 3. Elaborazione Semantica e Generazione Contenuti con API Gemini
+- La trascrizione e/o la comprensione del video ottenuta da Gemini (o la trascrizione preesistente) viene utilizzata come input per ulteriori chiamate all'**API Gemini** (ad esempio, usando un modello come Gemini 1.5 Pro).
+- Vengono inviati prompt specifici e strutturati all'API Gemini per generare:
+    - **Flashcard**: Seguendo la tassonomia di Bloom, tipi di domande/risposte vari, definizioni, ecc.
+    - **Quiz**: Domande a scelta multipla (con distrattori), cloze deletion (fill-in-the-blank), vero/falso con giustificazioni.
+    - **Mappa Mentale**: Una struttura dati gerarchica (es. JSON) che rappresenta i concetti chiave e le loro relazioni.
+    - **Riassunto Strutturato**: Riassunti a più livelli di dettaglio, dai punti chiave a spiegazioni più elaborate.
+- Ogni prompt è ingegnerizzato per massimizzare la qualità e la pertinenza dell'output per il tipo di contenuto desiderato.
 
-## 🔧 Setup Sviluppo
+#### 🗂️ 4. Salvataggio Contenuti
+- I contenuti strutturati (JSON, testo) restituiti dall'API Gemini vengono parsati e salvati nelle tabelle appropriate del database Supabase:
+  - `flashcards`, `summaries`, `mindmap_data`, `quiz_items` (tutti relazionati al `video_id`).
+- I metadati includono:
+  - Eventuali confidence score forniti da Gemini o stimati.
+  - Timestamp (se correlabili al video).
+  - User ID.
+  - Versione del modello Gemini utilizzata (per tracciabilità e futuri aggiornamenti).
 
-### Prerequisiti
-```bash
-# Node.js 18+
-# React Native CLI
-# Supabase CLI
-# Docker (per WhisperX)
-```
-
-### Installazione Rapida
-```bash
-# Clone repository
-git clone https://github.com/username/flashnote-edu
-cd flashnote-edu
-
-# Install dependencies
-npm install
-
-# Setup Supabase
-supabase init
-supabase start
-
-# Setup environment
-cp .env.example .env
-# Configura API keys (Gemini, Stripe, etc.)
-
-### Quick Start
-
-Per iniziare con il progetto FlashNote EDU, segui questi semplici passaggi:
-
-1.  **Clona il repository:**
-    ```bash
-git clone https://github.com/tuo-utente/flashnote-edu.git
-cd flashnote-edu
-    ```
-
-2.  **Installa le dipendenze (per il frontend web):**
-    ```bash
-npm install
-    ```
-
-3.  **Avvia l'applicazione web:**
-    ```bash
-npm start
-    ```
-    Questo avvierà un server di sviluppo e aprirà l'applicazione nel tuo browser predefinito.
-
-### Sviluppo Frontend Mobile (React Native)
-
-Per lavorare sul frontend mobile, segui questi passaggi:
-
-1.  **Assicurati di avere i prerequisiti di sviluppo installati:**
-    - Node.js 18+
-    - React Native CLI (installabile con `npm install -g react-native-cli`)
-    - Supabase CLI
-    - Docker
-
-2.  **Installa le dipendenze del progetto mobile:**
-    ```bash
-cd src/FlashNoteEDUApp
-npm install
-    ```
-
-3.  **Avvia l'applicazione mobile:**
-    Puoi avviare l'applicazione mobile direttamente dalla directory radice del progetto:
-    ```bash
-npm run start:mobile
-    ```
-    Questo avvierà il Metro Bundler di React Native. Dovrai poi avviare l'applicazione su un emulatore o un dispositivo fisico (es. `npx react-native run-android` o `npx react-native run-ios` dalla directory `src/FlashNoteEDUApp`).
-
-# Run development
-npm run dev
-```
-
-### Variabili Ambiente
-```bash
-SUPABASE_URL=your_supabase_url
-SUPABASE_ANON_KEY=your_anon_key
-GEMINI_API_KEY=your_gemini_key
-STRIPE_SECRET_KEY=your_stripe_key
-REVENUECAT_API_KEY=your_revenuecat_key
-```
-
-**Built with ❤️ using Vibe Coding principles**
-
-*Trasforma ogni video in conoscenza, ogni ripetizione in padronanza.*
+#### 🔄 5. Update Realtime Client
+- Tramite le funzionalità realtime/pubsub di Supabase:
+  - Il frontend React Native riceve una notifica che i contenuti sono pronti.
+  - L'interfaccia utente si aggiorna dinamicamente per mostrare le flashcard, i quiz, la mappa mentale e il riassunto generati.
